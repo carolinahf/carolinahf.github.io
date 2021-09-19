@@ -113,7 +113,18 @@ state.names = row.names(USArrests)
 barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest Rate for rape per 100,000", main = "Rape Rate in the United States in 1973")
 ```
 
+```{r}
+par(mfrow=c(3,1))
+state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest Rate for murder per 100,000", main = "Murder Rate in the United States in 1973")
 
+state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = "Arrest Rate for assault per 100,000", main = "Assault Rate in the United States in 1973")
+
+state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest Rate for rape per 100,000", main = "Rape Rate in the United States in 1973")
+
+```
 
 ```{r, echo = TRUE, fig.width = 5, fig.height = 8}
 

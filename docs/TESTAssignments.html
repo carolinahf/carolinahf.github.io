@@ -403,6 +403,16 @@ barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = &quot;Arrest
 <pre class="r"><code>state.names = row.names(USArrests)
 barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for rape per 100,000&quot;, main = &quot;Rape Rate in the United States in 1973&quot;)</code></pre>
 <p><img src="TESTAssignments_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>par(mfrow=c(3,1))
+state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for murder per 100,000&quot;, main = &quot;Murder Rate in the United States in 1973&quot;)
+
+state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for assault per 100,000&quot;, main = &quot;Assault Rate in the United States in 1973&quot;)
+
+state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for rape per 100,000&quot;, main = &quot;Rape Rate in the United States in 1973&quot;)</code></pre>
+<p><img src="TESTAssignments_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
 <p><strong>Answer</strong>: Par can be used to set or query graphical parameters. Parameters can be set by specifying them as arguments to par in tag = value form, or by passing them as a list of tagged values.</p>
 <p>What can you learn from plotting the histograms together?</p>
