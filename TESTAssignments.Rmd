@@ -155,7 +155,7 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 
 What does this code do? Explain what each line is doing.
 
-Answer:
+Answer:Is this the answer
 
 $$\\[2in]$$
 
