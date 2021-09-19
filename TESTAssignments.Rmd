@@ -82,7 +82,7 @@ What information is contained in this dataset, in general? What do the numbers m
 
 Draw a histogram of `Murder` with proper labels and title.
 
-*Answer*: I chose to make a barplot instead of a histogram because it made more sense to me, considering that the data is categorical. I thought it would be clearer if each bar represented a state, which is why I decided to label the x-axis with the names of the states and the y-axis the number of arrests for murder per 100,000. In the code las=2 simply means that I wanted that state labels to be perpendicular to the x-axis.
+**Answer**: I chose to make a barplot instead of a histogram because it made more sense to me, considering that the data is categorical. I thought it would be clearer if each bar represented a state, which is why I decided to label the x-axis with the names of the states and the y-axis the number of arrests for murder per 100,000. In the code las=2 simply means that I wanted that state labels to be perpendicular to the x-axis.
 ```{r}
 state.names = row.names(USArrests)
 barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest Rate for murder per 100,000", main = "Murder Rate in the United States in 1973")

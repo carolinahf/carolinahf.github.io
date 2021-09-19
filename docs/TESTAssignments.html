@@ -381,7 +381,7 @@ div.tocify {
 <div id="problem-5" class="section level3">
 <h3>Problem 5</h3>
 <p>Draw a histogram of <code>Murder</code> with proper labels and title.</p>
-<p><em>Answer</em>: I chose to make a barplot instead of a histogram because it made more sense to me, considering that the data is categorical. I thought it would be clearer if each bar represented a state, which is why I decided to label the x-axis with the names of the states and the y-axis the number of arrests for murder per 100,000. In the code las=2 simply means that I wanted that state labels to be perpendicular to the x-axis.</p>
+<p><strong>Answer</strong>: I chose to make a barplot instead of a histogram because it made more sense to me, considering that the data is categorical. I thought it would be clearer if each bar represented a state, which is why I decided to label the x-axis with the names of the states and the y-axis the number of arrests for murder per 100,000. In the code las=2 simply means that I wanted that state labels to be perpendicular to the x-axis.</p>
 <pre class="r"><code>state.names = row.names(USArrests)
 barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for murder per 100,000&quot;, main = &quot;Murder Rate in the United States in 1973&quot;)</code></pre>
 <p><img src="TESTAssignments_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
