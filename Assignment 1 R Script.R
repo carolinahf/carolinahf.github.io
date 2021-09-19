@@ -70,3 +70,7 @@ library('ggplot2')
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
   geom_map(map=map_data("state")) + 
   expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+
+#Problem 8 : 
+  
+#Answer: The code allows us to make a heat map of arrests for murder per 100,000 in the USA. The first line tells R that we want to make a heat map according to states and that we want to use the data of arrests for murder to fill in each state. The second line creates the map and the last line expands the range to fit in all possible values. 
