@@ -414,9 +414,9 @@ state.names = row.names(USArrests)
 barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest Rate for rape per 100,000&quot;, main = &quot;Rape Rate in the United States in 1973&quot;)</code></pre>
 <p><img src="Journal_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
-<p><strong>Answer</strong>: Par can be used to set or query graphical parameters. Parameters can be set by specifying them as arguments to par in tag = value form, or by passing them as a list of tagged values.</p>
+<p><strong>Answer</strong>: Par can be used to set different parameters and can allow us to create a single graph from many.</p>
 <p>What can you learn from plotting the histograms together?</p>
-<p><strong>Answer</strong>: By plotting histograms together (or in this case bar charts) we can see patterns more clearly.</p>
+<p><strong>Answer</strong>: By plotting histograms together (or in this case bar charts) we can see patterns more clearly. It becomes easier to compare the rates of arrest per 100,000 residents for each category across the states.</p>
 </div>
 <div id="problem-8" class="section level3">
 <h3>Problem 8</h3>
@@ -429,7 +429,7 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
   geom_map(map=map_data(&quot;state&quot;)) + 
   expand_limits(x=map_data(&quot;state&quot;)$long, y=map_data(&quot;state&quot;)$lat)</code></pre>
 <p>What does this code do? Explain what each line is doing.</p>
-<p>Answer:Is this the answer</p>
+<p><strong>Answer</strong>:The code allows us to make a heat map of arrests for murder per 100,000 in the USA. The first line tells R that we want to make a heat map according to states and that we want to use the data of arrests for murder to fill in each state. The second line creates the map and the last line expands the range to fit in all possible values.</p>
 <p><span class="math display">\[\\[2in]\]</span></p>
 </div>
 </div>

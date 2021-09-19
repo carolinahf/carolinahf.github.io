@@ -132,11 +132,11 @@ barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest Rate fo
 
 What does the command par do, in your own words (you can look this up by asking R `?par`)?
 
-**Answer**: Par can be used to set or query graphical parameters. Parameters can be set by specifying them as arguments to par in tag = value form, or by passing them as a list of tagged values.
+**Answer**: Par can be used to set different parameters and can allow us to create a single graph from many. 
 
 What can you learn from plotting the histograms together?
 
-**Answer**: By plotting histograms together (or in this case bar charts) we can see patterns more clearly. 
+**Answer**: By plotting histograms together (or in this case bar charts) we can see patterns more clearly. It becomes easier to compare the rates of arrest per 100,000 residents for each category across the states.
   
 ### Problem 8
 
@@ -155,7 +155,7 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 
 What does this code do? Explain what each line is doing.
 
-Answer:Is this the answer
+**Answer**:The code allows us to make a heat map of arrests for murder per 100,000 in the USA. The first line tells R that we want to make a heat map according to states and that we want to use the data of arrests for murder to fill in each state. The second line creates the map and the last line expands the range to fit in all possible values. 
 
 $$\\[2in]$$
 
