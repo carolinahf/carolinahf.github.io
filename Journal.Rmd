@@ -116,7 +116,7 @@ barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest Rate fo
 
 
 ```{r, echo = TRUE, fig.width = 5, fig.height = 8}
-par(mfrow=c(3,1))
+
 ```
 
 What does the command par do, in your own words (you can look this up by asking R `?par`)?
