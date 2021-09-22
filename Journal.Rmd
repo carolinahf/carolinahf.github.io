@@ -65,11 +65,11 @@ names(dat)
 
 What type of variable (from the DVB chapter) is `Murder`? 
 
-**Answer**: Murder is a categorical variable, according to the DVB chapter.
+**Answer**: Murder is a categorical variable, according to the DVB chapter. --- FALSE: It's a quantitative variable.
 
 What R Type of variable is it?
 
-**Answer**: It is a character R Type variable. 
+**Answer**: It is a character R Type variable. --- FALSE: It's a numeriical varable. 
 
 
 ### Problem 4
