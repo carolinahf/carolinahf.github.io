@@ -21,7 +21,7 @@ USArrests
 
 names(dat)
 
-# Problem 3: Murder is a categorical variable, according to the DVB chapter.
+# Problem 3: Murder is a categorical variable, according to the DVB chapter. --- FALSE: It's a quantitative variable. 
 # It is a BLANK R variable.
 
 # Problem 4: In this dataset we have the number of arrests per 100,000 residents for each of the following categories: assault, murder and rape in each of the 50 US states in 1973.

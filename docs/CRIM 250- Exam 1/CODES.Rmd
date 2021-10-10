@@ -1,0 +1,68 @@
+---
+title: "List of Codes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+summary(dat)
+```
+
+
+```{r}
+names(dat)
+```
+
+# Dimension
+```{r}
+dim(dat)
+```
+
+1 variable bar plot.
+```{r}
+counts <- table(dat$age2)
+barplot(counts, main = "Fig 1. Age of Participants", xlab="Code for Age")
+```
+
+Two variable stacked chart. 
+```{r}
+tab.agesex <- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = "Fig 3. Relationship between Sex and Age",
+        xlab = "Age category", ylab = "Frequency",
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)
+```
+
+
+Removing "99" or missing data 
+
+dat$sexatract   \\\\ have 1 99 (missing data)
+dat$sexatract.nas <-ifelse(dat$sexatract==99, NA, dat$seexatrct) 
+table(dat$sexatract.nas)
+table(dat$sexatract.nas)
+na.omit(your.data.frame) 
+
+Read(practicefatal-police-shootings-data.csv.htlm)
+
+
+
+
