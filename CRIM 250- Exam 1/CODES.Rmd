@@ -64,5 +64,18 @@ na.omit(your.data.frame)
 Read(practicefatal-police-shootings-data.csv.htlm)
 
 
+assignemnt 2 data 
 
+dat$sexatract
+dat$sexatract.nas <-ifelse(dat$sexatract==99, NA, dat$seexatract)
+
+dat$sexatract.nas <- ifelse(dat$sexatract == 99, NA, dat$sexatract)
+
+table(dat$sexatract.nas)
+
+dat$sexatract.nas
+
+sesxnona<-na.omit(dat$sexatract.nas)
+
+table(dat$sexnona)
 

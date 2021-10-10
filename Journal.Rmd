@@ -177,18 +177,6 @@ $$\\[2in]$$
 dat<-read.csv("dat.nsduh.small.1.csv")
 ```
 
-dat$sexatract
-dat$sexatract.nas <-ifelse(dat$sexatract==99, NA, dat$seexatract)
-
-dat$sexatract.nas <- ifelse(dat$sexatract == 99, NA, dat$sexatract)
-
-table(dat$sexatract.nas)
-
-dat$sexatract.nas
-
-sesxnona<-na.omit(dat$sexatract.nas)
-
-table(dat$sexnona)
 
 ```{r}
 summary(dat)
