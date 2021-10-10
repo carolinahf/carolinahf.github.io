@@ -436,94 +436,340 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 <div id="assignment-2" class="section level1">
 <h1>Assignment 2</h1>
 <p>#Carolina Herrera Figueroa # CRIM250- Statistics for the Social Sciences # Assignment 2 # Collaborators: Eliza Epstein</p>
-<p>setwd(“/Users/carolinaherrera/Documents/Assignment 2 - CRIM 250”) dat &lt;- read.csv(file = ‘dat.nsduh.small.1.csv’)</p>
+<p>##“/Users/carolinaherrera/Documents/Assignment 2 - CRIM 250”</p>
+<pre class="r"><code>dat&lt;-read.csv(&quot;dat.nsduh.small.1.csv&quot;)</code></pre>
 <p>dat<span class="math inline">\(sexatract dat\)</span>sexatract.nas &lt;-ifelse(dat<span class="math inline">\(sexatract==99, NA, dat\)</span>seexatract)</p>
 <p>dat<span class="math inline">\(sexatract.nas &lt;- ifelse(dat\)</span>sexatract == 99, NA, dat$sexatract)</p>
 <p>table(dat$sexatract.nas)</p>
 <p>dat$sexatract.nas</p>
 <p>sesxnona&lt;-na.omit(dat$sexatract.nas)</p>
 <p>table(dat$sexnona)</p>
-<p>summary(dat) head(dat)</p>
-<p>names(dat)</p>
-<p>dim(dat) # The data consists of 171 rows and 7 columns.</p>
-<p>#Problem 2: Variables # ANSWER: The variables in this data set are: mjage, cigage, iralcage, age2, sexatract, speakengl, irsex. (mjage) looks at how old the individual was the first time they used marijuana or hashish, (cigage) is have they ever smoked part of a cigarette, (iralcage) looks at how old the individual was when they first tried alcohol, (age2) represents their coded age, (irsex) represents their gender, (sexatract) looks at what best describes their sexual atractment and (speakengl) represents how well the individual speaks English. These are all categorical variables. names(dat)</p>
-</div>
-<div id="what-is-this-dataset-about-who-collected-the-data-what-kind-of-sample-is-it-and-what-was-the-purpose-of-generating-the-data" class="section level1">
-<h1>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</h1>
-</div>
-<div id="this-dataset-is-about-drug-and-alcohol-use.-it-was-collected-using-the-national-survey-of-drug-use-and-health-and-this-is-a-random-sample-of-the-first-1000-cases-of-the-survey.-the-purpose-of-generating-the-data-was-to-perhaps-be-able-to-study-the-relationship-between-drug-use-and-other-variables-such-as-age-or-gender.-i-think-the-results-could-perhaps-be-used-to-allocate-resources-to-individuals-or-groups-at-highest-risk-of-an-early-onset-of-drug-use." class="section level1">
-<h1>This dataset is about drug and alcohol use. It was collected using the National Survey of Drug Use and Health, and this is a random sample of the first 1000 cases of the survey. The purpose of generating the data was to perhaps be able to study the relationship between drug use and other variables such as age or gender. I think the results could perhaps be used to allocate resources to individuals or groups at highest risk of an early onset of drug use.</h1>
+<pre class="r"><code>summary(dat)</code></pre>
+<pre><code>##      mjage           cigage         iralcage          age2      
+##  Min.   : 7.00   Min.   :10.00   Min.   : 5.00   Min.   : 4.00  
+##  1st Qu.:14.00   1st Qu.:15.00   1st Qu.:13.00   1st Qu.:13.00  
+##  Median :16.00   Median :17.00   Median :15.00   Median :15.00  
+##  Mean   :15.99   Mean   :17.65   Mean   :14.95   Mean   :13.98  
+##  3rd Qu.:17.50   3rd Qu.:19.00   3rd Qu.:17.00   3rd Qu.:15.00  
+##  Max.   :35.00   Max.   :50.00   Max.   :23.00   Max.   :17.00  
+##    sexatract       speakengl        irsex      
+##  Min.   : 1.00   Min.   :1.00   Min.   :1.000  
+##  1st Qu.: 1.00   1st Qu.:1.00   1st Qu.:1.000  
+##  Median : 1.00   Median :1.00   Median :1.000  
+##  Mean   : 3.07   Mean   :1.07   Mean   :1.468  
+##  3rd Qu.: 1.00   3rd Qu.:1.00   3rd Qu.:2.000  
+##  Max.   :99.00   Max.   :3.00   Max.   :2.000</code></pre>
+<pre class="r"><code>head(dat)</code></pre>
+<pre><code>##   mjage cigage iralcage age2 sexatract speakengl irsex
+## 1    14     50       14   16         1         1     1
+## 2    11     14        5   13         2         1     2
+## 3    12     35       12   15         2         1     2
+## 4    16     18       18   14         1         1     1
+## 5    14     16       14   16         4         1     1
+## 6    12     16       18   15         4         1     2</code></pre>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
+## [7] &quot;irsex&quot;</code></pre>
+<pre class="r"><code>dim(dat)</code></pre>
+<pre><code>## [1] 171   7</code></pre>
+<p><strong>Answer</strong>:The data consists of 171 rows and 7 columns.</p>
+<p>#Problem 2: Variables <strong>ANSWER</strong>: The variables in this data set are: mjage, cigage, iralcage, age2, sexatract, speakengl, irsex. (mjage) looks at how old the individual was the first time they used marijuana or hashish, (cigage) is have they ever smoked part of a cigarette, (iralcage) looks at how old the individual was when they first tried alcohol, (age2) represents their coded age, (irsex) represents their gender, (sexatract) looks at what best describes their sexual atractment and (speakengl) represents how well the individual speaks English. These are all categorical variables.</p>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
+## [7] &quot;irsex&quot;</code></pre>
+<p>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data? <strong>Answer</strong>: This dataset is about drug and alcohol use. It was collected using the National Survey of Drug Use and Health, and this is a random sample of the first 1000 cases of the survey. The purpose of generating the data was to perhaps be able to study the relationship between drug use and other variables such as age or gender. I think the results could perhaps be used to allocate resources to individuals or groups at highest risk of an early onset of drug use.</p>
 <hr />
-<p>#Problem 3: Age and gender # What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean. # <em>Answer</em>: The age distribution of the sample is skewed with most individuals being between the ages of 35-49 years old, where the peak and the mean of the data is located, as shown by Figure 1. The lowest age of a respondent was 15 years old. I think those over 65 years old are also underrepresented in the sample.</p>
-<p>summary(dat)</p>
-<p>counts &lt;- table(dat$age2) barplot(counts, main = “Fig 1. Age of Participants”, xlab=“Code for Age”)</p>
-</div>
-<div id="do-you-think-this-age-distribution-representative-of-the-us-population-why-or-why-not" class="section level1">
-<h1>Do you think this age distribution representative of the US population? Why or why not?</h1>
-</div>
-<div id="answer-i-think-this-age-distribution-is-not-representative-of-the-us-population-because-it-suggests-that-the-population-is-mostly-comprised-of-individuals-between-the-age-of-35-49-years-old." class="section level1">
-<h1>ANSWER: I think this age distribution is not representative of the US population because it suggests that the population is mostly comprised of individuals between the age of 35-49 years old.</h1>
-</div>
-<div id="is-the-sample-balanced-in-terms-of-gender-if-not-are-there-more-females-or-males" class="section level1">
-<h1>Is the sample balanced in terms of gender? If not, are there more females or males?</h1>
-</div>
-<div id="answer-the-same-seems-to-be-relatively-balanced-in-terms-of-gender-but-there-are-slightly-more-males-than-females.-the-bar-chart-figure-2-shows-us-that-the-bar-for-code-1-which-represents-males-in-the-codebook-is-taller-meaning-our-sample-has-more-males." class="section level1">
-<h1>ANSWER: The same seems to be relatively balanced in terms of gender, but there are slightly more males than females. The bar chart (Figure 2) shows us that the bar for code “1” which represents males in the codebook is taller, meaning our sample has more males.</h1>
-<p>counts &lt;- table(dat$irsex) barplot(counts, main = “Fig 2. Gender of Participants”, xlab=“Code for Gender”)</p>
-</div>
-<div id="use-this-code-to-draw-a-stacked-bar-plot-to-view-the-relationship-between-sex-and-age.-what-can-you-conclude-from-this-plot" class="section level1">
-<h1>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</h1>
-</div>
-<div id="answer-this-plot-shows-us-that-for-most-age-categories-an-equal-number-of-males-and-females-were-surveyed-with-the-exception-of-a-few.-it-seems-that-the-younger-the-participants-were-the-more-likely-it-was-that-the-sample-consisted-of-mostly-males-or-mostly-females-but-it-was-not-even.-for-example-for-age-categories-6-and-7-which-translates-to-the-respondents-being-17-or-18-years-old-the-data-is-made-up-of-males-only.-starting-at-age-category-11-we-see-a-sample-more-evenly-split-among-males-and-females." class="section level1">
-<h1>ANSWER: This plot shows us that for most age categories an equal number of males and females were surveyed, with the exception of a few. It seems that the younger the participants were the more likely it was that the sample consisted of mostly males or mostly females, but it was not even. For example, for age categories 6 and 7, which translates to the respondents being 17 or 18 years old, the data is made up of males only. Starting at age category 11 we see a sample more evenly split among males and females.</h1>
-<p>tab.agesex &lt;- table(dat<span class="math inline">\(irsex, dat\)</span>age2) barplot(tab.agesex, main = “Fig 3. Relationship between Sex and Age”, xlab = “Age category”, ylab = “Frequency”, legend.text = rownames(tab.agesex), beside = FALSE) # Stacked bars (default)</p>
+<p>#Problem 3: Age and gender What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean. <strong>Answer</strong>: The age distribution of the sample is skewed with most individuals being between the ages of 35-49 years old, where the peak and the mean of the data is located, as shown by Figure 1. The lowest age of a respondent was 15 years old. I think those over 65 years old are also underrepresented in the sample.</p>
+<pre class="r"><code>summary(dat)</code></pre>
+<pre><code>##      mjage           cigage         iralcage          age2      
+##  Min.   : 7.00   Min.   :10.00   Min.   : 5.00   Min.   : 4.00  
+##  1st Qu.:14.00   1st Qu.:15.00   1st Qu.:13.00   1st Qu.:13.00  
+##  Median :16.00   Median :17.00   Median :15.00   Median :15.00  
+##  Mean   :15.99   Mean   :17.65   Mean   :14.95   Mean   :13.98  
+##  3rd Qu.:17.50   3rd Qu.:19.00   3rd Qu.:17.00   3rd Qu.:15.00  
+##  Max.   :35.00   Max.   :50.00   Max.   :23.00   Max.   :17.00  
+##    sexatract       speakengl        irsex      
+##  Min.   : 1.00   Min.   :1.00   Min.   :1.000  
+##  1st Qu.: 1.00   1st Qu.:1.00   1st Qu.:1.000  
+##  Median : 1.00   Median :1.00   Median :1.000  
+##  Mean   : 3.07   Mean   :1.07   Mean   :1.468  
+##  3rd Qu.: 1.00   3rd Qu.:1.00   3rd Qu.:2.000  
+##  Max.   :99.00   Max.   :3.00   Max.   :2.000</code></pre>
+<pre class="r"><code>counts &lt;- table(dat$age2)
+barplot(counts, main = &quot;Fig 1. Age of Participants&quot;, xlab=&quot;Code for Age&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Do you think this age distribution representative of the US population? Why or why not? ANSWER: I think this age distribution is not representative of the US population because it suggests that the population is mostly comprised of individuals between the age of 35-49 years old.</p>
+<p>Is the sample balanced in terms of gender? If not, are there more females or males? <strong>ANSWER</strong>: The same seems to be relatively balanced in terms of gender, but there are slightly more males than females. The bar chart (Figure 2) shows us that the bar for code “1” which represents males in the codebook is taller, meaning our sample has more males.</p>
+<pre class="r"><code>counts &lt;- table(dat$irsex)
+barplot(counts, main = &quot;Fig 2. Gender of Participants&quot;, xlab=&quot;Code for Gender&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot? <strong>ANSWER</strong>: This plot shows us that for most age categories an equal number of males and females were surveyed, with the exception of a few. It seems that the younger the participants were the more likely it was that the sample consisted of mostly males or mostly females, but it was not even. For example, for age categories 6 and 7, which translates to the respondents being 17 or 18 years old, the data is made up of males only. Starting at age category 11 we see a sample more evenly split among males and females.</p>
+<pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = &quot;Fig 3. Relationship between Sex and Age&quot;,
+        xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <div id="problem-4-substance-use" class="section level2">
 <h2>Problem 4: Substance use</h2>
-</div>
-</div>
-<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level1">
-<h1>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h1>
-</div>
-<div id="answer-individuals-tends-to-use-alcohol-earlier-it-was-reported-being-consumed-as-early-as-16-years-old-compared-with-18-years-old-for-marijuanahashnish-and-21-years-old-for-cigarettes.-we-can-also-see-that-25-of-the-respondents-were-under-the-age-of-29-when-they-tried-alcohol-for-the-first-time-compared-to-25-being-below-34-years-old-the-first-time-they-tried-marijuanahashish-and-25-of-those-who-respondents-who-were-under-49-years-old-when-theey-started-smoking-cigarettes.-alcohol-is-also-the-only-substance-in-our-sample-that-respondents-tried-for-the-first-time-under-the-age-of-18." class="section level1">
-<h1>Answer: Individuals tends to use alcohol earlier, it was reported being consumed as early as 16 years old, compared with 18 years old for marijuana/hashnish and 21 years old for cigarettes. We can also see that 25% of the respondents were under the age of 29 when they tried alcohol for the first time, compared to 25% being below 34 years old the first time they tried marijuana/hashish and 25% of those who respondents who were under 49 years old when theey started smoking cigarettes. Alcohol is also the only substance in our sample that respondents tried for the first time under the age of 18.</h1>
-<p>counts &lt;- table(dat$mjage) barplot(counts, main = “Fig 4. Age when First Used Marijuana/Hashish”, xlab=“Age”)</p>
-<p>counts &lt;- table(dat$cigage) barplot(counts, main = “Fig 5. Age when first started Smoking Cigarettes Every day”, xlab=“Age”)</p>
-<p>counts &lt;- table(dat$iralcage) barplot(counts, main = “Fig 6. Age When First tried Alcohol”, xlab=“Age”)</p>
+<p>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier? <strong>Answer</strong>: Individuals tends to use alcohol earlier, it was reported being consumed as early as 16 years old, compared with 18 years old for marijuana/hashnish and 21 years old for cigarettes. We can also see that 25% of the respondents were under the age of 29 when they tried alcohol for the first time, compared to 25% being below 34 years old the first time they tried marijuana/hashish and 25% of those who respondents who were under 49 years old when theey started smoking cigarettes. Alcohol is also the only substance in our sample that respondents tried for the first time under the age of 18.</p>
+<pre class="r"><code>counts &lt;- table(dat$mjage)
+barplot(counts, main = &quot;Fig 4. Age when First Used Marijuana/Hashish&quot;, xlab=&quot;Age&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre class="r"><code>counts &lt;- table(dat$cigage)
+barplot(counts, main = &quot;Fig 5. Age when first started Smoking Cigarettes Every day&quot;, xlab=&quot;Age&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>counts &lt;- table(dat$iralcage)
+barplot(counts, main = &quot;Fig 6. Age When First tried Alcohol&quot;, xlab=&quot;Age&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <hr />
+</div>
 <div id="problem-5-sexual-attraction" class="section level2">
 <h2>Problem 5: Sexual attraction</h2>
+<p>What does the distribution of sexual attraction look like? Is this what you expected? <strong>ANSWER</strong>: The distribution of sexual attraction is skewed, with a great majority of individuals reporting as being attracted only to the opposite sex. I was not surprised to see such a high number of individuals reporting to be heterosexual, but rather the difference between those who reported to be heterosexual and those who reported to be homosexual. I think we should keep in mind that it’s possible that some individuals may have chosen to not report accurately out of fear of embarassment.</p>
+<pre class="r"><code>counts &lt;- table(dat$sexatract)
+barplot(counts, main = &quot; Fig 7:Sexual Attraction&quot;, xlab=&quot;Code for Sexual Attraction&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>What is the distribution of sexual attraction by gender? <strong>Answer</strong>: The distribution of sexual attraction by gender is interesting because those who identify as strongly being heterosexual (1 on the codebook) are mostly males, while those who identify as being “mostly heterosexual” are mostly female. I thought this was interesting to see because it may be showing us the importance of the wording of the question since males were more likley to choose the option that strongly asserted their sexuality. In our sample of 1,000 individuals, those who identified as bisexual were only female. There was an even split between genders among those who identified as being attracted only to the same sex.</p>
+<pre class="r"><code>tab.sexatract &lt;- table(dat$irsex, dat$sexatract)
+barplot(tab.sexatract,
+        main = &quot;Fig 8: Relationship between Gender and Sexual Attraction&quot;,
+        xlab = &quot;Code for Sexual Attraction&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.sexatract),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
-</div>
-<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level1">
-<h1>What does the distribution of sexual attraction look like? Is this what you expected?</h1>
-</div>
-<div id="answer-the-distribution-of-sexual-attraction-is-skewed-with-a-great-majority-of-individuals-reporting-as-being-attracted-only-to-the-opposite-sex.-i-was-not-surprised-to-see-such-a-high-number-of-individuals-reporting-to-be-heterosexual-but-rather-the-difference-between-those-who-reported-to-be-heterosexual-and-those-who-reported-to-be-homosexual.-i-think-we-should-keep-in-mind-that-its-possible-that-some-individuals-may-have-chosen-to-not-report-accurately-out-of-fear-of-embarassment." class="section level1">
-<h1>ANSWER: The distribution of sexual attraction is skewed, with a great majority of individuals reporting as being attracted only to the opposite sex. I was not surprised to see such a high number of individuals reporting to be heterosexual, but rather the difference between those who reported to be heterosexual and those who reported to be homosexual. I think we should keep in mind that it’s possible that some individuals may have chosen to not report accurately out of fear of embarassment.</h1>
-<p>counts &lt;- table(dat$sexatract) barplot(counts, main = " Fig 7:Sexual Attraction“, xlab=”Code for Sexual Attraction")</p>
-</div>
-<div id="what-is-the-distribution-of-sexual-attraction-by-gender" class="section level1">
-<h1>What is the distribution of sexual attraction by gender?</h1>
-</div>
-<div id="answer-the-distribution-of-sexual-attraction-by-gender-is-interesting-because-those-who-identify-as-strongly-being-heterosexual-1-on-the-codebook-are-mostly-males-while-those-who-identify-as-being-mostly-heterosexual-are-mostly-female.-i-thought-this-was-interesting-to-see-because-it-may-be-showing-us-the-importance-of-the-wording-of-the-question-since-males-were-more-likley-to-choose-the-option-that-strongly-asserted-their-sexuality.-in-our-sample-of-1000-individuals-those-who-identified-as-bisexual-were-only-female.-there-was-an-even-split-between-genders-among-those-who-identified-as-being-attracted-only-to-the-same-sex." class="section level1">
-<h1>Answer: The distribution of sexual attraction by gender is interesting because those who identify as strongly being heterosexual (1 on the codebook) are mostly males, while those who identify as being “mostly heterosexual” are mostly female. I thought this was interesting to see because it may be showing us the importance of the wording of the question since males were more likley to choose the option that strongly asserted their sexuality. In our sample of 1,000 individuals, those who identified as bisexual were only female. There was an even split between genders among those who identified as being attracted only to the same sex.</h1>
-<p>tab.sexatract &lt;- table(dat<span class="math inline">\(irsex, dat\)</span>sexatract) barplot(tab.sexatract, main = “Fig 8: Relationship between Gender and Sexual Attraction”, xlab = “Code for Sexual Attraction”, ylab = “Frequency”, legend.text = rownames(tab.sexatract), beside = FALSE) # Stacked bars (default)</p>
 <div id="problem-6-english-speaking" class="section level2">
 <h2>Problem 6: English speaking</h2>
+<p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population? <strong>ANSWER</strong>: The distribution of English speaking looks very skewed in the sample, with the majority of individuals speaking English very well. The barplot shows us that over 150 individuals speak English very well while about 10 speak English not well. This is not what I would expect of a random sample of the US population, I expected to see a greater number of individuals who spoke English “well” and “not well” considering that English is not the nativie language for a great portion of the population. I didn’t expect the data to be as skewed at it is.</p>
+<p>Are there more English speaker females or males? <strong>ANSWER</strong>: There are more English speaking males, and in our sample none fall under the category of speaking English “not well”, represented by the bar labeled “3” on our plot.</p>
+<pre class="r"><code>counts &lt;- table(dat$speakengl)
+barplot(counts, main = &quot;Figure 9: How Well do Participants Speak English&quot;, xlab = &quot;Categories&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre class="r"><code>tab.sexengl &lt;- table(dat$irsex, dat$speakengl)
+barplot(tab.sexengl,
+        main = &quot;Figure 10: English Proficiency by Gender&quot;,
+        xlab = &quot;Code for English Speaking&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.sexengl),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 </div>
-<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level1">
-<h1>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h1>
+<div id="exam-1" class="section level1">
+<h1>Exam 1</h1>
+<pre class="r"><code>dat&lt;-read.csv(&quot;fatal-police-shootings-data.csv&quot;)</code></pre>
+<div id="problem-1-10-points" class="section level2">
+<h2>Problem 1 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the dataset. This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a> . Write two sentences (max.) about this.</li>
+</ol>
+<p><strong>This dataset describes every fatal shooting in the United States since January 1, 2015 by a police officer on the line of duty. It tracks different variables about the circumstances of the shooting including if the victim was armed or not.</strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many observations are there in the data frame?</li>
+</ol>
+<pre class="r"><code>dim(dat)</code></pre>
+<pre><code>## [1] 6594   17</code></pre>
+<p><strong>The data consists of 6594 rows and 17 columns..</strong></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Look at the names of the variables in the data frame. Describe what “body_camera”, “flee”, and “armed” represent, according to the codebook. Again, only write one sentence (max) per variable.</li>
+</ol>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>##  [1] &quot;id&quot;                      &quot;name&quot;                   
+##  [3] &quot;date&quot;                    &quot;manner_of_death&quot;        
+##  [5] &quot;armed&quot;                   &quot;age&quot;                    
+##  [7] &quot;gender&quot;                  &quot;race&quot;                   
+##  [9] &quot;city&quot;                    &quot;state&quot;                  
+## [11] &quot;signs_of_mental_illness&quot; &quot;threat_level&quot;           
+## [13] &quot;flee&quot;                    &quot;body_camera&quot;            
+## [15] &quot;longitude&quot;               &quot;latitude&quot;               
+## [17] &quot;is_geocoding_exact&quot;</code></pre>
+<p><strong>The variable “body_camera” looks at whether news reports indicate that a officer was wearing a body camera and if it possibly recorded some part of the incident.“flee” looks at whether news reports indicate that the victim was moving away from the officers and there are three possible responses: “by foot”, “car” or “not fleeing”. “Armed” looks at whether the victim was armed with some sort of artifact that a police officer believed could inflict harm, the possible responses are that this is “undetermined”, “unknown” or the victim was “unarmed”.</strong></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>What are three weapons that you are surprised to find in the “armed” variable? Make a table of the values in “armed” to see the options.</li>
+</ol>
+<pre class="r"><code>table(dat$armed)</code></pre>
+<pre><code>## 
+##                                                   air conditioner 
+##                              207                                1 
+##                       air pistol                   Airsoft pistol 
+##                                1                                3 
+##                               ax                         barstool 
+##                               24                                1 
+##                     baseball bat          baseball bat and bottle 
+##                               20                                1 
+## baseball bat and fireplace poker           baseball bat and knife 
+##                                1                                1 
+##                            baton                           BB gun 
+##                                6                               15 
+##               BB gun and vehicle                     bean-bag gun 
+##                                1                                1 
+##                      beer bottle                       binoculars 
+##                                3                                1 
+##                     blunt object                           bottle 
+##                                5                                1 
+##                    bow and arrow                       box cutter 
+##                                1                               13 
+##                            brick              car, knife and mace 
+##                                2                                1 
+##                          carjack                            chain 
+##                                1                                3 
+##                        chain saw                         chainsaw 
+##                                2                                1 
+##                            chair              claimed to be armed 
+##                                4                                1 
+##               contractor&#39;s level                   cordless drill 
+##                                1                                1 
+##                         crossbow                          crowbar 
+##                                9                                5 
+##                        fireworks                         flagpole 
+##                                1                                1 
+##                       flashlight                      garden tool 
+##                                2                                2 
+##                      glass shard                          grenade 
+##                                4                                1 
+##                              gun                      gun and car 
+##                             3798                               12 
+##                    gun and knife                  gun and machete 
+##                               22                                3 
+##                    gun and sword                  gun and vehicle 
+##                                1                               17 
+##              guns and explosives                           hammer 
+##                                3                               18 
+##                       hand torch                          hatchet 
+##                                1                               14 
+##                  hatchet and gun                         ice pick 
+##                                2                                1 
+##                incendiary device                            knife 
+##                                2                              955 
+##                knife and vehicle                 lawn mower blade 
+##                                1                                2 
+##                          machete                  machete and gun 
+##                               51                                1 
+##                     meat cleaver                  metal hand tool 
+##                                6                                2 
+##                     metal object                       metal pipe 
+##                                5                               16 
+##                       metal pole                       metal rake 
+##                                4                                1 
+##                      metal stick                       microphone 
+##                                3                                1 
+##                       motorcycle                         nail gun 
+##                                1                                1 
+##                              oar                       pellet gun 
+##                                1                                3 
+##                              pen                     pepper spray 
+##                                1                                2 
+##                         pick-axe                    piece of wood 
+##                                4                                7 
+##                             pipe                        pitchfork 
+##                                7                                2 
+##                             pole                   pole and knife 
+##                                3                                2 
+##                  railroad spikes                             rock 
+##                                1                                7 
+##                    samurai sword                         scissors 
+##                                4                                9 
+##                      screwdriver                     sharp object 
+##                               16                               14 
+##                           shovel                            spear 
+##                                7                                2 
+##                          stapler              straight edge razor 
+##                                1                                5 
+##                            sword                            Taser 
+##                               23                               34 
+##                        tire iron                       toy weapon 
+##                                4                              226 
+##                          unarmed                     undetermined 
+##                              421                              188 
+##                   unknown weapon                          vehicle 
+##                               82                              213 
+##                  vehicle and gun              vehicle and machete 
+##                                8                                1 
+##                    walking stick                       wasp spray 
+##                                1                                1 
+##                           wrench 
+##                                1</code></pre>
+<p><strong>Three weapons that surprised me in the “armed” variable are pen, wasp spray, and chainsaw.</strong></p>
 </div>
-<div id="answer-the-distribution-of-english-speaking-looks-very-skewed-in-the-sample-with-the-majority-of-individuals-speaking-english-very-well.-the-barplot-shows-us-that-over-150-individuals-speak-english-very-well-while-about-10-speak-english-not-well.-this-is-not-what-i-would-expect-of-a-random-sample-of-the-us-population-i-expected-to-see-a-greater-number-of-individuals-who-spoke-english-well-and-not-well-considering-that-english-is-not-the-nativie-language-for-a-great-portion-of-the-population.-i-didnt-expect-the-data-to-be-as-skewed-at-it-is." class="section level1">
-<h1>ANSWER: The distribution of English speaking looks very skewed in the sample, with the majority of individuals speaking English very well. The barplot shows us that over 150 individuals speak English very well while about 10 speak English not well. This is not what I would expect of a random sample of the US population, I expected to see a greater number of individuals who spoke English “well” and “not well” considering that English is not the nativie language for a great portion of the population. I didn’t expect the data to be as skewed at it is.</h1>
+<div id="problem-2-10-points" class="section level2">
+<h2>Problem 2 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the age distribution of the sample. Is this what you would expect to see?</li>
+</ol>
+<pre class="r"><code>hist(dat$age, main=&quot;Fig 1. Histogram of age of Victims&quot;, xlab=&quot;Years&quot;, ylab=&quot;Frequency&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><strong>The age distribution of the sample is what is would have expected to see. Looking at figure 1 we can see that a great portion of the victims are between the age of 30-35. Usually people between this age are more likely to be involved in interactions with the police. For example, I wasn’t expecting a large number of victims to be either under the age of 20, nor over the age of 45 and the histogram shows that to be true. The distribution is also unimodal and positvely skewed to the right. </strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.</li>
+</ol>
+<pre class="r"><code>summary(dat$age)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    6.00   27.00   35.00   37.12   45.00   91.00     308</code></pre>
+<p><strong>To understand the center of the age distribution I would use a median because it is resistant to values that are extremely large or small. Since the data is skewed to the right our mean would also be pulled to the right, giving us a number that does not represent the true center of the distribution. The median of the age distribution is 35 years old, meaning that the center of our data is located here. </strong></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Describe the gender distribution of the sample. Do you find this surprising?</li>
+</ol>
+<pre class="r"><code>counts &lt;- table(dat$gender)
+barplot(counts, main = &quot;Fig 2. Gender of Victim&quot;, xlab=&quot;Sex&quot;)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><strong>Figure 2 shows us that most of the victims were male, with a very small number identifying as female. I don’t find this surprising because usually when we hear about fatal police shootings the victims are always male. This could be either because they are more likley to put up a fight and resist to an arrest or because they are more likely to be stopped in the first place. The first very small bar in our chart signifies that the gender of the victim is unknown.</strong></p>
 </div>
-<div id="are-there-more-english-speaker-females-or-males" class="section level1">
-<h1>Are there more English speaker females or males?</h1>
+<div id="problem-3-10-points" class="section level2">
+<h2>Problem 3 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</li>
+</ol>
+<pre class="r"><code>table(dat$body_camera)</code></pre>
+<pre><code>## 
+## False  True 
+##  5684   910</code></pre>
+<p><strong>According to news reports 910 police officers had a body camera. 910/6594 – Only in 13.8% of all incidents in the data police officers has a body camera. I found this to actually be very surprising considering the number of states that are requiring their officers to wear body cameras. I think it possible that a portion of these deadly shootings could have been prevented if more officers were required to wear these cameras, because they create a sense of responsibility. There is no way to lie about the circumstances of a deadly shooting if there is videographic evidence of what occurred. </strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>In how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?</li>
+</ol>
+<pre class="r"><code>table(dat$flee)</code></pre>
+<pre><code>## 
+##                     Car        Foot Not fleeing       Other 
+##         491        1058         845        3952         248</code></pre>
+<p><strong>The victim was fleeing in 1903 of the incidents, 1058 by car and 845 by foot. There are 491 missing values in this dataset, if we include those in the calculation, the victim was fleeing in 1903/6594 – 28.85% of the cases. If we do not include the missing values, the victim was fleeing in 31.18% of cases. This is not what I expected because it shows that the police officer did not have much reason to shoot the victim in a fatal way. If the individual isn’t fleeing then they are most likely not a source of imminent danger to the public, meaning there must be another way to get control over them. I would have expected the proportion of victims fleeing to be at least 50%.</strong></p>
 </div>
-<div id="answer-there-are-more-english-speaking-males-and-in-our-sample-none-fall-under-the-category-of-speaking-english-not-well-represented-by-the-bar-labeled-3-on-our-plot." class="section level1">
-<h1>ANSWER: There are more English speaking males, and in our sample none fall under the category of speaking English “not well”, represented by the bar labeled “3” on our plot.</h1>
-<p>counts &lt;- table(dat$speakengl) barplot(counts, main = “Figure 9: How Well do Participants Speak English”, xlab = “Categories”)</p>
-<p>tab.sexengl &lt;- table(dat<span class="math inline">\(irsex, dat\)</span>speakengl) barplot(tab.sexengl, main = “Figure 10: English Proficiency by Gender”, xlab = “Code for English Speaking”, ylab = “Frequency”, legend.text = rownames(tab.sexengl), beside = FALSE) # Stacked bars (default)</p>
+<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level2">
+<h2>Problem 4 (10 points) - Answer only one of these (a or b).</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the relationship between the variables “body camera” and “flee” using a stacked barplot. What can you conclude from this relationship?</li>
+</ol>
+<p><em>Hint 1: The categories along the x-axis are the options for “flee”, each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).</em></p>
+<p><em>Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
+<pre class="r"><code>tab.agesex &lt;- table(dat$body_camera, dat$flee)
+barplot(tab.agesex,
+        main = &quot;Fig 3. Relationship between Body Camera and Flee&quot;,
+        xlab = &quot;Victim fleeing&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><strong>Figure 3 first shows us that most of the victims were not fleeing. Secondly, it shows us that more police officers were wearing cameras when the victim was not fleeing compared to when they were. I wouldn’t exactly say that there is an association between the two considering that police officers probably cannot take off their body cameras in the middle of their shift simply because it is convenient for the situation. I do think it’s off to see how in how many of these fatal shootings there is actual video evidence of what happened. The first bar in our plot is unlabeled in the dataset, so we are unsure of what that represents. There is also an “other” category where we see a small percentage of body cameras being used. I think this leaves a lot to think about because we don’t know if people in this category were fleeing or if there actions were open to ambiguity. This sort of makes me question the rest of the data and why some things aren’t specifically described or how were circumstances categorized. But overall, we can conclude that in our data more police officers were wearing body cameras that may have recoded part of the incident when the victim was not fleeing compared to when they were fleeing.</strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship?</li>
+</ol>
+<p><em>Hint 1: The categories along the x-axis are the race categories and the height along the y-axis is age.</em></p>
+<p><em>Hint 2: Also, if you are unsure about the syntax for boxplot, run ?boxplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
+<p><strong>Your answer here.</strong></p>
+</div>
+<div id="extra-credit-10-points" class="section level2">
+<h2>Extra credit (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>What does this code tell us?</li>
+</ol>
+<pre class="r"><code>mydates &lt;- as.Date(dat$date)
+head(mydates)
+(mydates[length(mydates)] - mydates[1])</code></pre>
+<p><strong>This code tells us the number of days that have passed since the first data point was collected. 2458 days have passed since January 1, 2015.</strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported? <strong>I think some police killings might not be reported because it is unconvenient for the officer and the city. Perhaps it can affect their budget and how they are viewed by the public. The lack of body cameras also makes this more possible since we don’t have video evidence to prove exactly how the situation occurred.</strong></p></li>
+<li><p>Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data?</p></li>
+</ol>
+</div>
 </div>
 
 
