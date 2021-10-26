@@ -462,12 +462,14 @@ c. Regarding missing values in problem 4, do you see any? If so, do you think th
 
 
 
-
-
-
 # Assignmennt 3
 
 Due date: Wednesday 10/27/2021 before class.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 
 Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.
 
