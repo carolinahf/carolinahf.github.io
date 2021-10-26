@@ -1,15 +1,16 @@
 ---
-title: "Assignment 3"
-author: "Carolina Herrera Figueroa"
-date: "10/21/2021"
+title: "(3) Assignment"
 output: html_document
 ---
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Instructions
+Collaborator: Eliza Epstein
 
 Due date: Wednesday 10/27/2021 before class.
 
@@ -73,6 +74,9 @@ library(datasets)
 plot(dat.crime$Ed, dat.crime$R, main= "Relationship between Average Education and Reported Crime Rate",
      xlab = "Average Education", ylab= "Reported Crime Rate")
 ```
+
+
+
 ```{r} 
 cor(dat.crime$Ed, dat.crime$R)
 ```
@@ -111,7 +115,7 @@ __The scatterplot for residuals vs x does not have any pattern surrounding the d
 ```{r} 
 ```
 
-__Looking at the Residuals vs v plot above, there are no patterns or clumping which would suggest failure of independence, thus the independence assumption is satisfied.__ 
+__Looking at the Residuals vs x plot above, there are no patterns or clumping which would suggest failure of independence, thus the independence assumption is satisfied.__ 
 
 ```{r} 
 plot(crime.lm, which=3)
@@ -137,8 +141,4 @@ __For every unit increase in education the reported crime rate increases by 1.11
 
 7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?
 
-__Even though the relationship found above was statistically significant I would not conclude if individuals were to receive more education that crime would be reported more often. ---- .__
-
-
-
-
+__Even though the relationship found above was statistically significant I would not conclude that if individuals were to receive more education that crime would be reported more often. We cannot establish a causal relationship between the two, but the model does allow us to make inferences about our population.__
