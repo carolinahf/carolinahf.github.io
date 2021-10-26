@@ -64,7 +64,7 @@ dim(dat.crime)
 ```{r}
 head(dat.crime)
 ```
-__In the dataset there are 47 rows and 14 columns. The 14 columnns correspond to the statistics of 14 different variables that were looked at, from unemployment rate to state population size and crime rate. Each row corresponds to 1 of the 47 states for which data was collected.__
+__In the dataset there are 47 rows and 14 columns. The 14 columns correspond to the statistics of 14 different variables that were looked at, from unemployment rate to state population size and crime rate. Each row corresponds to 1 of the 47 states for which data was collected.__
 
 2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?
 

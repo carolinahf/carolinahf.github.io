@@ -474,6 +474,14 @@ knitr::opts_chunk$set(echo = TRUE)
 Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.
 
 Load the data by using this code (no need to edit it on your end because it's getting the data from the internet).
+
+```{r}
+library(readr)
+library(knitr)
+dat.crime <- read_delim("crime_simple.txt", delim = "\t")
+```
+
+
 ```{r}
 dat.crime <- read_delim("http://www.andrew.cmu.edu/user/achoulde/94842/data/crime_simple.txt", delim = "\t")
 ```
