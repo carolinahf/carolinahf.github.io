@@ -466,10 +466,16 @@ c. Regarding missing values in problem 4, do you see any? If so, do you think th
 
 Due date: Wednesday 10/27/2021 before class.
 
+---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Instructions
+Collaborator: Eliza Epstein
+
+Due date: Wednesday 10/27/2021 before class.
 
 Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.
 
@@ -477,10 +483,8 @@ Load the data by using this code (no need to edit it on your end because it's ge
 
 ```{r}
 library(readr)
-library(knitr)
-dat.crime <- read_delim("crime_simple.txt", delim = "\t")
+dat.crime <- read_delim("http://www.andrew.cmu.edu/user/achoulde/94842/data/crime_simple.txt", delim = "\t")
 ```
-
 
 
 This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given. 
@@ -524,8 +528,10 @@ We are interested in checking whether the reported crime rate (# of offenses rep
 ```{r}
 dim(dat.crime)
 ```
-
-__In the dataset there are 47 rows and 14 columns.__
+```{r}
+head(dat.crime)
+```
+__In the dataset there are 47 rows and 14 columns. The 14 columns correspond to the statistics of 14 different variables that were looked at, from unemployment rate to state population size and crime rate. Each row corresponds to 1 of the 47 states for which data was collected.__
 
 2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?
 
@@ -537,6 +543,7 @@ plot(dat.crime$Ed, dat.crime$R, main= "Relationship between Average Education an
 ```{r} 
 cor(dat.crime$Ed, dat.crime$R)
 ```
+
 __I would say that there appears to be a weak positive relationship between average education and reported crime rate.The correlation between average education and reported crime rate is 0.3228, which is greater than 0 but still relatively small.__
 
 3. Regress reported crime rate (y) on average education (x) and call this linear model `crime.lm` and write the summary of the regression by using this code, which makes it look a little nicer `{r, eval=FALSE} kable(summary(crime.lm)$coef, digits = 2)`.
@@ -545,7 +552,7 @@ __I would say that there appears to be a weak positive relationship between aver
 crime.lm <-lm(formula = R ~ Ed, data=dat.crime)
 ```
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 summary(crime.lm)
 ```
 
@@ -558,20 +565,19 @@ kable(summary(crime.lm)$coef, digits = 2)
 4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)
 
 ```{r} 
-plot(dat.crime$Ed, reg.output$residuals, ylim=c(-15,15), main= "Residuals vs. x", xlab= "x, Average education", ylab = "Residuals")
+plot(dat.crime$Ed, crime.lm$residuals, ylim=c(-15,15), main= "Residuals vs. x", xlab= "x, Average education", ylab = "Residuals")
 abline (h=0, lty="dashed")
 ```
 
 ```{r} 
 plot(crime.lm, which=1)
 ```
-
 __The scatterplot for residuals vs x does not have any pattern surrounding the dashed line, thus the linearity assumption is satisfied.__ 
 
 ```{r} 
 ```
 
-__Looking at the Residuals vs v plot above, there are no patterns or clumping which would suggest failure of independence, thus the independence assumption is satisfied.__ 
+__Looking at the Residuals vs x plot above, there are no patterns or clumping which would suggest failure of independence, thus the independence assumption is satisfied.__ 
 
 ```{r} 
 plot(crime.lm, which=3)
@@ -597,6 +603,4 @@ __For every unit increase in education the reported crime rate increases by 1.11
 
 7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?
 
-__Even though the relationship found above was statistically significant I would not conclude if individuals were to receive more education that crime would be reported more often. ---- .__
-
-
+__Even though the relationship found above was statistically significant I would not conclude that if individuals were to receive more education that crime would be reported more often. We cannot establish a causal relationship between the two, but the model does allow us to make inferences about our population.__
