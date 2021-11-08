@@ -594,12 +594,12 @@ __Even though the relationship found above was statistically significant I would
 
 # Exam 2 Upload 
 
-# Problem 1: EDA (10 points) 
+Problem 1: EDA (10 points) 
 
 Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.
 
 ```{r}
-dat <- read.csv(file = 'sim.data.csv')
+dat <- read.csv("sim.data.csv")
 ```
 
 ```{r}
@@ -623,7 +623,7 @@ summary(dat$po.brut)
 __There are 200 rows and 3 columns in the dataset. The varibles we have are the police department code (po.dept.code), the amount of funding received by the police department that year in millions of dollars (funds) and the number of incidents of police brutality reported by the department that year (po.brut). The average number of incidents of police brutality is 18.14, and the maximum is 29. The average amount of funds received by a police department that year was 61.04 million dollars. In the scatterplot of the relationship between the variables we can see that there is a curve and also has somewhat of a direction. I would say that there appears to be strong negative relationship between funds and reported incidents of police brutality.__
 
 
-# Problem 2: Linear regression (30 points)
+Problem 2: Linear regression (30 points)
 
 a. Perform a simple linear regression to answer the question of interest. To do this, name your linear model "reg.output" and write the summary of the regression by using "summary(reg.output)". 
 
@@ -693,7 +693,7 @@ __I would say that even though the initial scatterplot shows that there is a str
 
 
 
-# Problem 3: Data ethics (10 points)
+Problem 3: Data ethics (10 points)
 
 Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?
 
