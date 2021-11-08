@@ -462,11 +462,136 @@ c. Regarding missing values in problem 4, do you see any? If so, do you think th
 
 
 
-# Assignmennt 3-- UPLOAD
+# Assignment 3-- UPLOAD
 
 Due date: Wednesday 10/27/2021 before class.
  
- 
+```{r}
+library(readr)
+dat.crime <- read_delim("http://www.andrew.cmu.edu/user/achoulde/94842/data/crime_simple.txt", delim = "\t")
+```
+
+
+This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given. 
+
+Here is the codebook:
+
+R: Crime rate: # of offenses reported to police per million population
+
+Age: The number of males of age 14-24 per 1000 population
+
+S: Indicator variable for Southern states (0 = No, 1 = Yes)
+
+Ed: Mean of years of schooling x 10 for persons of age 25 or older
+
+Ex0: 1960 per capita expenditure on police by state and local government
+
+Ex1: 1959 per capita expenditure on police by state and local government
+
+LF: Labor force participation rate per 1000 civilian urban males age 14-24
+
+M: The number of males per 1000 females
+
+N: State population size in hundred thousands
+
+NW: The number of non-whites per 1000 population
+
+U1: Unemployment rate of urban males per 1000 of age 14-24
+
+U2: Unemployment rate of urban males per 1000 of age 35-39
+
+W: Median value of transferable goods and assets or family income in tens of $
+
+X: The number of families per 1000 earning below 1/2 the median income
+
+
+We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related. 
+
+
+1. How many observations are there in the dataset? To what does each observation correspond?
+
+```{r}
+dim(dat.crime)
+```
+```{r}
+head(dat.crime)
+```
+
+__In the dataset there are 47 rows and 14 columns. The 14 columns correspond to the statistics of 14 different variables that were looked at, from unemployment rate to state population size and crime rate. Each row corresponds to 1 of the 47 states for which data was collected.__
+
+2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?
+
+```{r, fig.width=6, fig.height=4}
+library(datasets)
+plot(dat.crime$Ed, dat.crime$R, main= "Relationship between Average Education and Reported Crime Rate",
+     xlab = "Average Education", ylab= "Reported Crime Rate")
+```
+
+
+```{r} 
+cor(dat.crime$Ed, dat.crime$R)
+```
+
+__I would say that there appears to be a weak positive relationship between average education and reported crime rate.The correlation between average education and reported crime rate is 0.3228, which is greater than 0 but still relatively small.__
+
+3. Regress reported crime rate (y) on average education (x) and call this linear model `crime.lm` and write the summary of the regression by using this code, which makes it look a little nicer `{r, eval=FALSE} kable(summary(crime.lm)$coef, digits = 2)`.
+
+```{r}
+crime.lm <-lm(formula = R ~ Ed, data=dat.crime)
+```
+
+```{r, eval=TRUE}
+summary(crime.lm)
+```
+
+
+4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)
+
+```{r} 
+plot(dat.crime$Ed, crime.lm$residuals, ylim=c(-15,15), main= "Residuals vs. x", xlab= "x, Average education", ylab = "Residuals")
+abline (h=0, lty="dashed")
+```
+
+
+```{r} 
+plot(crime.lm, which=1)
+```
+
+
+__The scatterplot for residuals vs x does not have any pattern surrounding the dashed line, thus the linearity assumption is satisfied.__ 
+
+__Looking at the Residuals vs x plot above, there are no patterns or clumping which would suggest failure of independence, thus the independence assumption is satisfied.__ 
+
+```{r} 
+plot(crime.lm, which=3)
+```
+
+
+__The Equal Variance Assumption is also satisfied since there are no significant trends on the red line of the plot and it is pretty flat, we also don't have that many data poits.__
+
+
+
+```{r} 
+plot(crime.lm, which=2)
+```
+
+__The Normal Population Assumption is not fully satisfied because the Q-Q plot does have tails, between -2 and -1, and 1 and 2.__
+
+
+5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?
+
+__The estimated coefficient of the slope is 1.116, the standard error is 0.4878 and the p-value is 0.0268. Using a significance level of 0.05, the relationship between reported crime and average education is statistically significant because the p-value is smaller than 0.05. Since the relationship is statistically significant we can reject the null hypothesis in favor of the alternative hypothesis, which is that average education and reported crime rate are related. We also have evidence to say that this relationship is not due to chance. __
+
+6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?
+
+__For every unit increase in education the reported crime rate increases by 1.116 reports per million per state.__
+
+7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?
+
+__Even though the relationship found above was statistically significant I would not conclude that if individuals were to receive more education that crime would be reported more often. We cannot establish a causal relationship between the two, but the model does allow us to make inferences about our population.__
+
+
+
 # Exam 2 Upload 
 
 
