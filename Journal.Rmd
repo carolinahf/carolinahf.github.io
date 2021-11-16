@@ -164,12 +164,13 @@ $$\\[2in]$$
 
 # Assignment 2 
 
-#Carolina Herrera Figueroa 
-# CRIM250- Statistics for the Social Sciences
-# Assignment 2
-# Collaborators: Eliza Epstein
+Carolina Herrera Figueroa 
 
+CRIM250- Statistics for the Social Sciences
 
+Assignment 2
+
+**Collaborators: Eliza Epstein. **
 
 ##"/Users/carolinaherrera/Documents/Assignment 2 - CRIM 250"
 
@@ -462,7 +463,7 @@ c. Regarding missing values in problem 4, do you see any? If so, do you think th
 
 
 
-# Assignment 3-- UPLOAD
+# Assignment 3
 
 Due date: Wednesday 10/27/2021 before class.
  
@@ -592,7 +593,7 @@ __Even though the relationship found above was statistically significant I would
 
 
 
-# Exam 2 Upload 
+# Exam 2 
 
 Problem 1: EDA (10 points) 
 
