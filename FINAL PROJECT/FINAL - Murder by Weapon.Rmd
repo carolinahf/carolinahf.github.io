@@ -1,0 +1,65 @@
+---
+title: "Final Project - Murder by Gender"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+setwd('/Users/carolinaherrera/Desktop/test Github/carolinahf.github.io/FINAL PROJECT')
+```
+
+```{r}
+library("readxl")
+```
+
+```{r}
+my_data <- read_excel('table-20.xls')
+```
+```{r}
+summary(my_data)
+```
+```{r}
+head(my_data)
+```
+
+```{r}
+names(my_data)
+```
+```{r, eval=FALSE}
+my_data$state <- tolower(rownames(my_data))
+```
+
+
+
+```{r}
+state.names = row.names(my_data)
+barplot(my_data$Handguns, names.arg = state.names, las = 2, ylab = "number of handguns used for Murder", main = "Firearm use for Murder")
+```
+
+rownames(my_data)
+
+
+```{r}
+tab.agesex <- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = "Fig 3. Relationship between Sex and Age",
+        xlab = "Age category", ylab = "Frequency",
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
