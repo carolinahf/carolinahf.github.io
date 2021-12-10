@@ -1450,9 +1450,11 @@ ggplot(suv, aes(displ, hwy, colour = drv)) +
 <p><img src="Journal_files/figure-html/unnamed-chunk-137-1.png" width="720" /></p>
 <p>This map (below) instead shows the number of shotguns used in homicides. For this specific type of weapon we can see that California and Texas are very similar.</p>
 <p><img src="Journal_files/figure-html/unnamed-chunk-138-1.png" width="720" /></p>
-<p>Next, we created a map using a binary of “North” vs “South” states based on the distinctions made by the census bureau. <img src="Journal_files/figure-html/unnamed-chunk-139-1.png" width="720" /></p>
+<p>The following map (below), instead shows the percentage of homicides that involved a firearm, rather than a different type of weapon.</p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-139-1.png" width="720" /></p>
+<p>Next, we created a map using a binary of “North” vs “South” states based on the distinctions made by the census bureau. <img src="Journal_files/figure-html/unnamed-chunk-140-1.png" width="720" /></p>
 <p>We then created a bar chart showing the number of states in each region to visually express that in the distribution of states more are classified as being Northern States than Southern States.</p>
-<p><img src="Journal_files/figure-html/unnamed-chunk-140-1.png" width="720" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-141-1.png" width="720" /></p>
 <p>Lastly, we conducted our data analysis, where our results demonstrated a significant p-value allowing us to reject the null hypothesis and a significant coefficient estimate for a difference between North and South numbers of firearm deaths (NVS1).</p>
 <pre><code>## 
 ## Call:
@@ -1474,15 +1476,15 @@ ggplot(suv, aes(displ, hwy, colour = drv)) +
 ## F-statistic: 7.524 on 1 and 47 DF,  p-value: 0.008588</code></pre>
 <p>Beyond this, we conducted a regression analysis to further solidify our hypothesis, show that the four assumptions are satisfied to reject the null hypothesis, and reinforce our analysis by taking into account our missing data and the inequality in the number of north and south states.</p>
 <p>Before our assumptions, the goodness of fit of our graph is satisfied through our Residuals vs. X line (with Washington DC as the lower outlier) and Residuals vs. Fitted (with DC again as outlier).</p>
-<p><img src="Journal_files/figure-html/unnamed-chunk-142-1.png" width="672" /> <img src="Journal_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
-<p>The assumption of independence between observations is also satisfied as shown by the Residuals vs X plot.</p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-143-1.png" width="672" /> <img src="Journal_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<p>The assumption of independence between observations is also satisfied as shown by the Residuals vs X plot.We can also assume that simply because a state is located in the North or South that it will automatically have a lower/higher use of firearms in homicides.</p>
 <p>The assumption of homoscedasticity is satisfied through our Scale-Location Plot, despite a slight skew downwards as the fitted values grow larger.</p>
-<p><img src="Journal_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
 <p>The assumption of normality is mostly satisfied through the linearity of our Normal Q-Q plot since there are some light tails between -2 and -1, and 1 and 2.</p>
-<p><img src="Journal_files/figure-html/unnamed-chunk-145-1.png" width="672" /><img src="Journal_files/figure-html/unnamed-chunk-145-2.png" width="672" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-146-1.png" width="672" /><img src="Journal_files/figure-html/unnamed-chunk-146-2.png" width="672" /></p>
 <p>Lastly, the assumption of linearity is satisfied through the residuals vs x plot.</p>
 <p>In order to counter our missing data of Alabama and Florida, while also taking into account more northern states than southern states, we conducted two side-by-side histograms for comparison while also using the Welch Two-Sample T-Test. Within both the histograms and the t-test, we are able to reject the null hypothesis by using the significance level of our p-value.</p>
-<p><img src="Journal_files/figure-html/unnamed-chunk-146-1.png" width="672" /><img src="Journal_files/figure-html/unnamed-chunk-146-2.png" width="672" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-147-1.png" width="672" /><img src="Journal_files/figure-html/unnamed-chunk-147-2.png" width="672" /></p>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1497,7 +1499,7 @@ ggplot(suv, aes(displ, hwy, colour = drv)) +
 <p>Overall, through the significance of our p-values, our coefficient estimate detailing a difference between North and South state firearm deaths, and our ability to reject the null hypothesis, our hypothesis stands true. Thus, there is a significant difference between firearm deaths in states identified as North and South. In summary, Southern states had much higher numbers of homicide by firearm in 2019. Due to higher gun ownership and less stringent firearm laws within Southern states, these states are much more likely to commit homicides by varying types of firearms.</p>
 <p>Whether it be due to state firearm laws, personal and social beliefs around firearms, the state’s political landscape, or another factor, confounds may also affect our conclusion. As portrayed through our DAG, the location of the state (whether in the North or South) should thus affect gun laws, which would then affect the weapon type used in homicides within the state. However, another path that can be considered is the location of the state, which affects how individuals feel socially and politically about guns, thus affecting the weapon used in homicides within the state. Nonetheless, political and social perspectives of firearms may also be wrapped into the reasoning for more stringent or relaxed gun laws, and thus, these confounds do not truly alter our hypothesis or perceived outcome. Below, we demonstrate our DAG.</p>
 <div class="figure">
-<img src="FINAL%20PROJECT/Images/DAG.png" alt="" />
+<img src="FINAL%20PROJECT/Images/DAG2.png" alt="" />
 <p class="caption">Homicide and Weapon Type DAG</p>
 </div>
 <p>Returning to our initial hypothesis, issues in data analysis rendered us incapable of studying our research question within the given timeframe and within our limited access to the data. Due to missing chunks of data, issues in processing through R, and a constrained time frame to examine large amounts of data, we were unable to complete the study of our first hypothesis. Through these limitations, we were able to better understand the research process overall. Through confounds in data, analysis, and time, a researcher must be able to adapt their hypothesis and their study to the times. Within our project, we were able to rework our question to further understand a current large concern within the United States: the correlation between firearm ownership, state firearm laws, and state homicides by firearm. In doing so, we learned that there is truly a correlation between Southern states, with relaxed gun laws and increased ownership, and firearm deaths.</p>
