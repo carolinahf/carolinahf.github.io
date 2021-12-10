@@ -1498,7 +1498,11 @@ library('ggplot2')
 dat.weapon$States <- tolower(dat.weapon$States)
 ggplot(dat.weapon, aes(map_id=States, fill=Handguns)) + 
   geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
 
 The map below shows the number of rifles used in homicides in each state. 
@@ -1509,7 +1513,11 @@ library('ggplot2')
 dat.weapon$States <- tolower(dat.weapon$States)
 ggplot(dat.weapon, aes(map_id=States, fill=Rifles)) + 
   geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)  +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
 
 This map (below) instead shows the number of shotguns used in homicides. For this specific type of weapon we can see that California and Texas are very similar. 
@@ -1520,8 +1528,28 @@ library('ggplot2')
 dat.weapon$States <- tolower(dat.weapon$States)
 ggplot(dat.weapon, aes(map_id=States, fill=Shotguns)) + 
   geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)+ 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
+
+
+The following map (below), instead shows the percentage of homicides that involved a firearm, rather than a different type of weapon.
+
+```{r, eval = TRUE, fig.width = 7.5, fig.height = 4, echo=FALSE}
+ggplot(dat.weapon, aes(map_id=States, fill=Percentage)) + 
+  geom_map(map=map_data("state")) + 
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat) +
+   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
+```
+
+
+
 
 
 Next, we created a map using a binary of "North" vs "South" states based on the distinctions made by the census bureau. 
@@ -1532,7 +1560,11 @@ dat.weapon$States <- tolower(dat.weapon$States)
 ggplot(dat.weapon, aes(map_id=States, fill=NVS)) + 
   scale_fill_discrete(name = "NvsS", labels = c("North", "South")) +
   geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
 
 We then created a bar chart showing the number of states in each region to visually express that in the distribution of states more are classified as being Northern States than Southern States. 
@@ -1544,7 +1576,8 @@ dat.weapon$States <- tolower(dat.weapon$States)
 ggplot(data=dat.weapon, aes(x=NVS)) +
   geom_bar() +
   labs(title="States categorized by North and South", y="Numbers of States") +
-  scale_x_discrete(name = "North vs. South", labels = c("North", "South"))
+  scale_x_discrete(name = "North vs. South", labels = c("North", "South")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 ```
 
 
@@ -1573,7 +1606,7 @@ plot(weapon.lm, which=1)
 ```
 
 
-The assumption of independence between observations is also satisfied as shown by the Residuals vs X plot.
+The assumption of independence between observations is also satisfied as shown by the Residuals vs X plot.We can also assume that simply because a state is located in the North or South that it will automatically have a lower/higher use of firearms in homicides.  
 
 The assumption of homoscedasticity is satisfied through our Scale-Location Plot, despite a slight skew downwards as the fitted values grow larger.
 
@@ -1621,7 +1654,7 @@ Overall, through the significance of our p-values, our coefficient estimate deta
 
 Whether it be due to state firearm laws, personal and social beliefs around firearms, the state’s political landscape, or another factor, confounds may also affect our conclusion. As portrayed through our DAG, the location of the state (whether in the North or South) should thus affect gun laws, which would then affect the weapon type used in homicides within the state. However, another path that can be considered is the location of the state, which affects how individuals feel socially and politically about guns, thus affecting the weapon used in homicides within the state. Nonetheless, political and social perspectives of firearms may also be wrapped into the reasoning for more stringent or relaxed gun laws, and thus, these confounds do not truly alter our hypothesis or perceived outcome. Below, we demonstrate our DAG.
 
-![Homicide and Weapon Type DAG](/Users/carolinaherrera/Desktop/test Github/carolinahf.github.io/FINAL PROJECT/Images/DAG.png)
+![Homicide and Weapon Type DAG](/Users/carolinaherrera/Desktop/test Github/carolinahf.github.io/FINAL PROJECT/Images/DAG2.png)
 
 
 Returning to our initial hypothesis, issues in data analysis rendered us incapable of studying our research question within the given timeframe and within our limited access to the data. Due to missing chunks of data, issues in processing through R, and a constrained time frame to examine large amounts of data, we were unable to complete the study of our first hypothesis. Through these limitations, we were able to better understand the research process overall. Through confounds in data, analysis, and time, a researcher must be able to adapt their hypothesis and their study to the times. Within our project, we were able to rework our question to further understand a current large concern within the United States: the correlation between firearm ownership, state firearm laws, and state homicides by firearm. In doing so, we learned that there is truly a correlation between Southern states, with relaxed gun laws and increased ownership, and firearm deaths. 
