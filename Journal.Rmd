@@ -1666,6 +1666,16 @@ Now, beyond the outcomes of the data analysis, this project taught us valuable l
 
 
 
+Bibliography:
+Brennan, P. G., Lizotte, A. J., & McDowall, D. (1993). Guns, Southernness, and Gun Control. Journal of Quantitative Criminology, 9(3), 289–307. https://doi.org/10.1007/bf01064463
+Bureau, U. S. C. (2021, October 8). 2010 census regions and divisions of the United States. Census.gov. Retrieved December 7, 2021, from https://www.census.gov/geographies/reference-maps/2010/geo/2010-census-regions-and-divisions-of-the-united-states.html.
+FBI. (2011, July 26). Expanded homicide data - 2010. FBI: UCR. Retrieved December 7, 2021, from https://ucr.fbi.gov/crime-in-the-u.s/2010/crime-in-the-u.s.-2010/offenses-known-to-law-enforcement/expanded/expandhomicidemain.
+FBI. (2016). 2016 Crime in the US: Murder. FBI:UCR. Retrieved December 1, 2021, from ​https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/murder.
+FBI. (2019, August 29). Table 20 - Expanded Homicide, Murder by State and Types of Weapons. FBI: UCR. Retrieved December 7, 2021, from https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/tables/table-20.
+Greenfield, L., & Snell, T. (2000). Bureau of Justice Statistics Special Report - Women Offenders. US Department of Justice. Retrieved December 7, 2021, from https://bjs.ojp.gov/content/pub/pdf/wo.pdf.
+JRank. (n.d.). Homicide - Justifiable or Excusable Homicide. Justifiable Or Excusable Homicide - Person, Deadly, Force, and Death . Retrieved December 7, 2021, from https://law.jrank.org/pages/7401/Homicide-Justifiable-or-Excusable-Homicide.html#:~:text=A%20justifiable%20homicide%20is%20a,commanded%20or%20authorized%20by%20law.&text=Generally%2C%20such%20killings%20are%20considered,scope%20of%20the%20soldiers'%20duty.
+Kaplan, J. (2017, June 2). Jacob Kaplan's concatenated files: Uniform crime reporting (UCR) program data: Supplementary homicide reports, 1976-2019. openICPSR. Retrieved December 7, 2021, from https://www.openicpsr.org/openicpsr/project/100699/version/V10/view.
+UC Davis Health. (n.d.). Facts and Figures. UC Davis Health | What You Can Do. Retrieved December 7, 2021, from https://health.ucdavis.edu/what-you-can-do/facts.html. 
 
 
 

@@ -1,0 +1,94 @@
+---
+title: "FINAL Project"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+setwd('/Users/carolinaherrera/Desktop/test Github/carolinahf.github.io/FINAL PROJECT')
+```
+
+```{r}
+library(readstata13)
+```
+
+```{r}
+library(haven)
+```
+
+```{r}
+library(stringr)
+```
+
+```{r}
+dat.final<- read_dta('shr_1976_2020.dta')
+```
+## R Markdown
+
+```{r}
+
+
+datf <- data.frame(dat.final$homicide_type, dat.final$offender_1_sex)
+datf$r_homocide_type = str_replace_all(dat.final$homicide_type,"-","")
+tab.offendsex <- table(dat.final$offender_1_sex,datf$r_homocide_type)
+
+tab.offendsex
+barplot(tab.offendsex,
+        main = "Distribution of homocide types by gender",
+        xlab = "Type of Homocides", ylab = "Values",
+        legend.text = rownames(tab.offendsex),
+        beside = FALSE)
+
+tab.circumstancesex <- table(dat.final$offender_1_sex,dat.final$offender_1_circumstance)
+tab.circumstancesex
+
+tab.subcircumstancesex <- table(dat.final$offender_1_sex,dat.final$offender_1_subcircumstance)
+tab.subcircumstancesex
+barplot(tab.subcircumstancesex,
+        main = "Distribution of homocide types by gender",
+        xlab = "Type of Homocides", ylab = "Values",
+        width=50,
+        legend.text = rownames(tab.circumstancesex),
+        beside = FALSE)
+```
+The data is very messy as it has a lot of empty spaces. The labels has to be fixed and there is no clear indication of homicide data.In order to perform better analysis, I created a excel sheet that contain all the necessary data. 
+
+```{r}
+library(readxl)
+Finalproject_Data <- read_excel("C:/Users/Gluttonous Kangaroo/Desktop/Penn Works/CRIM 250/Exam/Final Project/Finalproject Data.xlsx")
+#By importing a new edited dataset, one can perform better data analysis on it.#
+datf <- data.frame(dat.final$homicide_type, dat.final$offender_1_sex)
+final1.lm<-lm(formula = offender_1_sex ~ homicide_type, data = dat.final)
+summary(final1.lm)
+```
+
+
+
+```{r}
+summary(final)
+```
+
+```{r}
+final<- read.dta(shr_1976_2020.dta)
+```
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
